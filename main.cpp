@@ -74,7 +74,7 @@ int main() {
         }
         else if (meniuPasirinkimas == 3) {
             double sumaValiuta;
-            cout << "Iveskite " << valiutosPavadinimas << "suma, kuria norite parduoti: ";
+            cout << "Iveskite " << valiutosPavadinimas << "Suma, kuria norite parduoti: ";
             cin >> sumaValiuta;
 
             if (sumaValiuta <= 0) {
