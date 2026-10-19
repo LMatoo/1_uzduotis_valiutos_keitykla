@@ -10,15 +10,16 @@ int main() {
     int meniuPasirinkimas = 0;
     cout << "\n=== VALIUTOS KEITYKLA ===" << endl;
     cout << "1. Valiutos kurso palyginimas su euru" << endl;
-    cout << "2. Iseiti" << endl;
-    cout << "Pasirinkite veiksma (1-2):";
+    cout << "2. Valiutos pirkimas(EUR -> pasirinkta valiuta)" << endl;
+    cout << "3. Iseiti" << endl;
+    cout << "Pasirinkite veiksma (1-3):";
     cin >> meniuPasirinkimas;
-    if (meniuPasirinkimas == 2) {
+    if (meniuPasirinkimas == 3) {
         cout << "Aciu, kad naudojates keitykla. Viso gero!" << endl;
         return 0;
     }
-    if (meniuPasirinkimas < 1 || meniuPasirinkimas > 2) {
-        cout << "KLAIDA: Nera tokio pasirinkimo. Pasirinkite tarp 1-2"<< endl;
+    if (meniuPasirinkimas < 1 || meniuPasirinkimas > 3) {
+        cout << "KLAIDA: Nera tokio pasirinkimo. Pasirinkite tarp 1-3"<< endl;
         return 0;
     }
 
@@ -51,7 +52,22 @@ int main() {
             return 0;
     }
     cout << fixed << setprecision(2);
-    cout << "1.00 EUR = " << pasirinktasKursas << " " << valiutosPavadinimas << endl;
+    if (meniuPasirinkimas == 1) {
+        cout << "1.00 EUR = " << pasirinktasKursas << " " << valiutosPavadinimas << endl;
+    }
+    else if (meniuPasirinkimas == 2) {
+        double sumaEUR;
+        cout << "Iveskite EUR suma, kuria norite konvertuoti: ";
+        cin >> sumaEUR;
 
+        if (sumaEUR <= 0) {
+            cout << "KLAIDA: Suma turi buti teigiama!" << endl;
+            return 0;
+        }
+        double gautaSuma = sumaEUR * pasirinktasKursas;
+        cout << "\n--- SEKMINGAS PIRKIMAS! ---" << endl;
+        cout << "Pradine suma: " << sumaEUR << "EUR" << endl;
+        cout << "Gauta suma: " << gautaSuma << " " << valiutosPavadinimas << endl;
+    }
     return 0;
 }
